@@ -1,8 +1,8 @@
-Srcs= main.cpp Bureaucrat.cpp
+Srcs= main.cpp Bureaucrat.cpp Form.cpp
 
-Header= Bureaucrat.hpp
+Header= Bureaucrat.hpp Form.hpp
 
-Name= Bureaucrat
+Name= bureaucrat
 
 all: $(Name)
 

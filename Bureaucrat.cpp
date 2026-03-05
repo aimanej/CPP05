@@ -18,12 +18,15 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
-	*this = other;
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name),  _grade(other._grade)
+{
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
-	(void)other;
+	if(this != &other)
+	{
+		_grade = other._grade;
+	}
 	return (*this);
 }
 
@@ -47,4 +50,16 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 {
 	stream << b.GetName() << ", Bureaucrat grade " << b.GetGrade() << std::endl;
 	return stream;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	try{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.GetName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << _name << "didint sign cuz" << e.what() << std::endl;
+	}
 }

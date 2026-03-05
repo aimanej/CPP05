@@ -5,7 +5,9 @@
 #include <string>
 #include <exception>
 
+#include "Form.hpp"
 
+class Form;
 
 class Bureaucrat {
 	private:
@@ -23,7 +25,7 @@ class Bureaucrat {
 	{
 		virtual const char *what() const throw()
 		{
-			return "grade too high";
+			return "grade too Low";
 		}
 	};
 		Bureaucrat(void) : _name("djando"), _grade(0){}
@@ -35,6 +37,7 @@ class Bureaucrat {
 		int GetGrade() const;
 		void inc_grade();
 		void dec_grade();
+		void signForm(Form &form);
 		
 };
 
