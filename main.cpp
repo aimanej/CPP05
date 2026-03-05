@@ -2,7 +2,15 @@
 
 int main()
 {
-    Bureaucrat jhon("Jhon");
+    try{
 
-    std::cout << jhon.GetName() << std::endl;
+        Bureaucrat peter("peter", 3);
+        std::cout << peter;
+        Bureaucrat jhon("Jhon", 150);
+        Bureaucrat kevin("kevin", 1);
+        jhon.dec_grade();
+    }
+    catch (std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
 }
