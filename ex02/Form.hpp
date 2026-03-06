@@ -3,6 +3,7 @@
 
 #include <string>
 #include <ostream>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -31,18 +32,19 @@ class AForm {
 	};
 		AForm(void);
 		AForm(std::string name, int sgn, int exe);
-		AForm(const AForm& other);
+		// AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
-		~AForm(void);
+		virtual ~AForm(void) = 0;
 		std::string GetName() const;
 		bool SignatureCheck() const;
-		virtual void sign() = 0;
+		void sign();
 		int get_gtos();
 		int get_gtoex();
 		void beSigned(Bureaucrat& crat);
+		void execute(Bureaucrat const & executor) const;
 
 };
 
-std::ostream &operator<<(std::ostream &out, AForm form);
+// std::ostream &operator<<(std::ostream &out, AForm form);
 
 #endif

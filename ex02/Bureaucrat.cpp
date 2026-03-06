@@ -52,14 +52,14 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 	return stream;
 }
 
-void Bureaucrat::signForm(AForm& form)
-{
-	try{
-		form.beSigned(*this);
-		std::cout << _name << " signed " << form.GetName() << std::endl;
-	}
-	catch(std::exception &e)
-	{
-		std::cout << _name << " could not sign due to " << e.what() << std::endl;
-	}
-}
+// void Bureaucrat::signForm(AForm& form)
+// {
+// 	try{
+// 		form.beSigned(*this);
+// 		std::cout << _name << " signed " << form.GetName() << std::endl;
+// 	}
+// 	catch(std::exception &e)
+// 	{
+// 		std::cout << _name << " could not sign due to " << e.what() << std::endl;
+// 	}
+// }

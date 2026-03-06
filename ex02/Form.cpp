@@ -1,4 +1,6 @@
 #include "Form.hpp"
+#include <iomanip>
+
 
 AForm::AForm(void) : _name("unknown"), _g_to_sgn(1), _g_to_exe(1)
 {
@@ -23,10 +25,10 @@ void AForm::sign()
 	_signed = true;
 }
 
-AForm::AForm(const AForm& other) : _name(other._name), _g_to_sgn(other._g_to_sgn), _g_to_exe(other._g_to_exe)
-{
-	_signed = other._signed;
-}
+// AForm::AForm(const AForm& other) : _name(other._name), _g_to_sgn(other._g_to_sgn), _g_to_exe(other._g_to_exe)
+// {
+// 	_signed = other._signed;
+// }
 
 int AForm::get_gtos()
 {
@@ -48,12 +50,18 @@ AForm& AForm::operator=(const AForm& other) {
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &out, AForm form)
+void AForm::execute(Bureaucrat const & executor) const
 {
-	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
-	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
-	return out;
+	if(!_signed || executor.GetGrade() > _g_to_exe)
+		throw GradeTooLowException();
+	
 }
+// std::ostream &operator<<(std::ostream &out, AForm form)
+// {
+// 	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
+// 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
+// 	return out;
+// }
 
 void AForm::beSigned(Bureaucrat& crat)
 {
