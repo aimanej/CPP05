@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main()
 {
@@ -11,12 +10,8 @@ int main()
         Bureaucrat cat(jhon);
         std::cout << cat;
         Bureaucrat kevin("kevin", 1);
-        Form f("declaration of independance", 4, 2);
-        std::cout << f << std::endl;
-
-        kevin.signForm(f);
-        jhon.signForm(f);
-        peter.signForm(f);
+        std::cout << kevin;
+        kevin.inc_grade();
 
     }
     catch (std::exception &e){

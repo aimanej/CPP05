@@ -51,7 +51,7 @@ Form& Form::operator=(const Form& other) {
 std::ostream &operator<<(std::ostream &out, Form form)
 {
 	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
-	out << form.get_gtos() << "minimum grade to execute: " << form.get_gtoex() << std::endl;
+	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
 	return out;
 }
 

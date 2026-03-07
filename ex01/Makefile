@@ -12,3 +12,4 @@ $(Name): $(Srcs) $(Header)
 clean:
 	rm -rf $(Name)
 
+re: clean all

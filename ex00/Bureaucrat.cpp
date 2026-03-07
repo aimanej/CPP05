@@ -30,7 +30,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat(void) { std::cout << "destructor for Bureaucrat " << _name << "called \n";}
 
 void Bureaucrat::inc_grade()
 {
@@ -50,16 +50,4 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 {
 	stream << b.GetName() << ", Bureaucrat grade " << b.GetGrade() << std::endl;
 	return stream;
-}
-
-void Bureaucrat::signForm(Form& form)
-{
-	try{
-		form.beSigned(*this);
-		std::cout << _name << " signed " << form.GetName() << std::endl;
-	}
-	catch(std::exception &e)
-	{
-		std::cout << _name << "didint sign cuz" << e.what() << std::endl;
-	}
 }

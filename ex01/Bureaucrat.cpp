@@ -1,5 +1,5 @@
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
+
 
 std::string Bureaucrat::GetName() const
 {
@@ -52,7 +52,7 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 	return stream;
 }
 
-void Bureaucrat::signForm(AForm& form)
+void Bureaucrat::signForm(Form& form)
 {
 	try{
 		form.beSigned(*this);
@@ -61,16 +61,5 @@ void Bureaucrat::signForm(AForm& form)
 	catch(std::exception &e)
 	{
 		std::cout << _name << " could not sign due to " << e.what() << std::endl;
-	}
-}
-
-void Bureaucrat::executeForm(AForm const & form) const
-{
-	try{
-		form.execute(*this);
-		std::cout << GetName() << " executed " << form.GetName() << std::endl;
-	}
-	catch(std::exception &e){
-		std::cout << GetName() << " could not execute "  << form.GetName() << "  due to " << e.what() << std::endl;
 	}
 }

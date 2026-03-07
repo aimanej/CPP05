@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
@@ -11,12 +12,21 @@ int main()
         Bureaucrat cat(jhon);
         std::cout << cat;
         Bureaucrat kevin("kevin", 1);
-        AForm f("declaration of independance", 4, 2);
-        std::cout << f ;
+        // AForm f("declaration of independance", 4, 2);
+        // std::cout << f ;
+        ShrubberyCreationForm form("home");
+        
+        std::cout << form;
+        kevin.signForm(form);
+        kevin.executeForm(form);
+        jhon.executeForm(form);
+        // form.execute(jhon);
+        // form.execute(kevin);
+        // form.execute(peter);
 
-        kevin.signForm(f);
-        jhon.signForm(f);
-        peter.signForm(f);
+        // kevin.signForm(f);
+        // jhon.signForm(f);
+        // peter.signForm(f);
 
     }
     catch (std::exception &e){
