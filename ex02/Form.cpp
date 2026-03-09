@@ -56,12 +56,12 @@ void AForm::execute(Bureaucrat const & executor) const
 		throw GradeTooLowException();
 	
 }
-// std::ostream &operator<<(std::ostream &out, AForm form)
-// {
-// 	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
-// 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
-// 	return out;
-// }
+std::ostream &operator<<(std::ostream &out, AForm& form)
+{
+	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
+	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
+	return out;
+}
 
 void AForm::beSigned(Bureaucrat& crat)
 {

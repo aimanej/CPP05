@@ -28,7 +28,7 @@ class Bureaucrat {
 			return "grade too Low";
 		}
 	};
-		Bureaucrat(void) : _name("djando"), _grade(0){}
+		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat& operator=(const Bureaucrat& other);

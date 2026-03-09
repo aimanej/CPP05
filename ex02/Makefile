@@ -1,6 +1,6 @@
-Srcs= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+Srcs= main.cpp PresidentialPardonForm.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
-Header= Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp
+Header= PresidentialPardonForm.hpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 Name= bureaucrat
 

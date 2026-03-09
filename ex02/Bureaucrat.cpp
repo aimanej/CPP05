@@ -18,6 +18,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw GradeTooHighException();
 }
 
+Bureaucrat::Bureaucrat()  : _name("djando"), _grade(155) {}
+
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name),  _grade(other._grade)
 {
 }
