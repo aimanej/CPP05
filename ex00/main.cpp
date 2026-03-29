@@ -7,8 +7,8 @@ int main()
         Bureaucrat peter("peter", 3);
         std::cout << peter;
         Bureaucrat jhon("Jhon", 150);
-        Bureaucrat cat(jhon);
-        std::cout << cat;
+        std::cout << jhon;
+        jhon.dec_grade();
         Bureaucrat kevin("kevin", 1);
         std::cout << kevin;
         kevin.inc_grade();

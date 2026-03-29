@@ -1,12 +1,12 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-std::string Bureaucrat::GetName() const
+std::string Bureaucrat::getName() const
 {
 	return _name;
 }
 
-int Bureaucrat::GetGrade() const
+int Bureaucrat::getGrade() const
 {
 	return _grade;
 }
@@ -50,7 +50,7 @@ void Bureaucrat::dec_grade()
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 {
-	stream << b.GetName() << ", Bureaucrat grade " << b.GetGrade() << std::endl;
+	stream << b.getName() << ", Bureaucrat grade " << b.getGrade() << std::endl;
 	return stream;
 }
 
@@ -58,7 +58,7 @@ void Bureaucrat::signForm(AForm& form)
 {
 	try{
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.GetName() << std::endl;
+		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
 	catch(std::exception &e)
 	{
@@ -70,9 +70,9 @@ void Bureaucrat::executeForm(AForm const & form) const
 {
 	try{
 		form.execute(*this);
-		std::cout << GetName() << " executed " << form.GetName() << std::endl;
+		std::cout << getName() << " executed " << form.getName() << std::endl;
 	}
 	catch(std::exception &e){
-		std::cout << GetName() << " could not execute "  << form.GetName() << "  due to " << e.what() << std::endl;
+		std::cout << getName() << " could not execute "  << form.getName() << "  due to " << e.what() << std::endl;
 	}
 }

@@ -1,22 +1,18 @@
-#include "Bureaucrat.hpp"
+// #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main()
 {
     try{
 
-        Bureaucrat peter("peter", 3);
+        Bureaucrat peter("peter", 1);
+        Bureaucrat jhon("jhon", 23);
+        Form dec("declaration of independence", 4, 20);
         std::cout << peter;
-        Bureaucrat jhon("Jhon", 150);
-        Bureaucrat cat(jhon);
-        std::cout << cat;
-        Bureaucrat kevin("kevin", 1);
-        Form f("declaration of independance", 4, 2);
-        std::cout << f ;
-
-        kevin.signForm(f);
-        jhon.signForm(f);
-        peter.signForm(f);
+        std::cout << jhon;
+        jhon.signForm(dec);
+        peter.signForm(dec);
+        std::cout << dec;
 
     }
     catch (std::exception &e){

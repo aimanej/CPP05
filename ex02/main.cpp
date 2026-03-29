@@ -1,5 +1,4 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -8,40 +7,30 @@ int main()
 {
     try{
 
-        Bureaucrat peter("peter", 3);
+        Bureaucrat peter("peter", 26);
+        Bureaucrat jhon("jhon", 100);
+        std::cout << "Bureaucrats Birthed: " << std::endl;
         std::cout << peter;
-        Bureaucrat jhon("Jhon", 150);
-        Bureaucrat cat(jhon);
-        std::cout << cat;
-        Bureaucrat kevin("kevin", 1);
-        // AForm f("declaration of independance", 4, 2);
-        // std::cout << f ;
-        ShrubberyCreationForm form("home");
-        RobotomyRequestForm ff("shrudee jhonson ");
-        PresidentialPardonForm pp("tenten");
+        std::cout << jhon << std::endl;
+        ShrubberyCreationForm shrub("first");
+        RobotomyRequestForm robot;
+        PresidentialPardonForm pardonpaper("President Krasinsky");
 
-        std::cout << ff;
-        std::cout << pp;
-        
-        // std::cout << form;
-        // kevin.signForm(form);
-        // kevin.executeForm(form);
-        // jhon.executeForm(form);
+        std::cout << "Forms created:" << std::endl;
+        std::cout << shrub << robot << pardonpaper << std::endl;
 
-        // kevin.executeForm(ff);
-        // kevin.signForm(ff);
-        // kevin.executeForm(ff);
-        // kevin.executeForm(ff);
-        // peter.signForm(pp);
-        // kevin.executeForm(pp);
+        jhon.signForm(pardonpaper);
+        peter.signForm(pardonpaper);
+        peter.signForm(shrub);
 
-        // form.execute(jhon);
-        // form.execute(kevin);
-        // form.execute(peter);
+        peter.inc_grade();
+        peter.signForm(pardonpaper);
 
-        // kevin.signForm(f);
-        // jhon.signForm(f);
-        // peter.signForm(f);
+        peter.executeForm(shrub);
+        jhon.executeForm(pardonpaper);
+
+        Bureaucrat dead("unalive", 152);
+        std::cout << "this should not print" << std::endl;
 
     }
     catch (std::exception &e){

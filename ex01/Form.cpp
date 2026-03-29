@@ -1,6 +1,7 @@
+// #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(void) : _name("unknown"), _g_to_sgn(1), _g_to_exe(1)
+Form::Form(void) : _name("CLASSIFIED"), _g_to_sgn(1), _g_to_exe(1)
 {
 }
 
@@ -12,55 +13,57 @@ Form::Form(std::string name, int sgn, int exe) : _name(name), _g_to_sgn(sgn), _g
 	else if(_g_to_sgn > 150 || _g_to_exe > 150)
 		throw GradeTooLowException();
 }
+Form::Form(const Form& other) : _name(other._name), _g_to_sgn(other._g_to_sgn), _g_to_exe(other._g_to_exe)
+{
+	_signed = other._signed;
+}
+
+Form& Form::operator=(const Form& other) {
+	if(this != &other)
+	{
+		_signed = other._signed;
+	}
+	return (*this);
+}
+
 
 bool Form::SignatureCheck() const
 {
 	return _signed;
 }
 
-void Form::sign()
-{
-	_signed = true;
-}
+Form::~Form(void) {}
 
-Form::Form(const Form& other) : _name(other._name), _g_to_sgn(other._g_to_sgn), _g_to_exe(other._g_to_exe)
-{
-	_signed = other._signed;
-}
-
-int Form::get_gtos()
+int Form::get_gtos() const
 {
 	return _g_to_sgn;
 }
 
-std::string Form::GetName() const
-{
-	return _name;
-}
 
-int Form::get_gtoex()
+int Form::get_gtoex() const
 {
 	return _g_to_exe;
 }
 
-Form& Form::operator=(const Form& other) {
-	(void)other;
-	return (*this);
+std::string Form::getName() const
+{
+	return _name;
 }
 
-std::ostream &operator<<(std::ostream &out, Form form)
+
+std::ostream &operator<<(std::ostream &out, Form &form)
 {
-	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
+	out << "form name: " << form.getName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
 	return out;
 }
 
-void Form::beSigned(Bureaucrat crat)
+void Form::beSigned(Bureaucrat &crat)
 {
-	if(crat.GetGrade() > _g_to_sgn)
+	if(crat.getGrade() > _g_to_sgn)
 		throw GradeTooLowException();
-	sign();
+	_signed = true;
 	
 }
 
-Form::~Form(void) {}
+

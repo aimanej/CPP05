@@ -5,8 +5,6 @@
 #include <string>
 #include <exception>
 
-#include "Form.hpp"
-
 class Form;
 
 class Bureaucrat {
@@ -25,16 +23,16 @@ class Bureaucrat {
 	{
 		virtual const char *what() const throw()
 		{
-			return "grade too Low";
+			return "grade too low";
 		}
 	};
-		Bureaucrat(void) : _name("djando"), _grade(0){}
+		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat(void);
-		std::string GetName() const;
-		int GetGrade() const;
+		std::string getName() const;
+		int getGrade() const;
 		void inc_grade();
 		void dec_grade();
 		void signForm(Form &form);

@@ -27,7 +27,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 // std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &form)
 // {
-// 	out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
+// 	out << "form name: " << form.getName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
 // 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
 // 	return out;
 // }

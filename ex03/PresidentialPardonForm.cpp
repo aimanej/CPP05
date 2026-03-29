@@ -26,7 +26,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
 // std::ostream &operator<<(std::ostream &out, PresidentialPardonForm &form)
 // {
-// 		out << "form name: " << form.GetName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
+// 		out << "form name: " << form.getName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
 // 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
 // 	return out;
 // }

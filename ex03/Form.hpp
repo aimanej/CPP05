@@ -35,9 +35,8 @@ class AForm {
 		// AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
 		virtual ~AForm(void) = 0;
-		std::string GetName() const;
+		std::string getName() const;
 		bool SignatureCheck() const;
-		void sign();
 		int get_gtos();
 		int get_gtoex();
 		void beSigned(Bureaucrat& crat);

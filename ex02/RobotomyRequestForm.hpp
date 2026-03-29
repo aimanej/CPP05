@@ -1,7 +1,7 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "form.hpp"
+#include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
 	private:
@@ -9,13 +9,11 @@ class RobotomyRequestForm : public AForm {
 	public:
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(std::string target);
-		void execute(Bureaucrat const  &executor) const;
-		// RobotomyRequestForm(const RobotomyRequestForm& other);
-		// RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+		RobotomyRequestForm(const RobotomyRequestForm& other);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		~RobotomyRequestForm(void);
+		void execute(Bureaucrat const  &executor) const;
 };
-
-// std::ostream &operator<<(std::ostream &out, RobotomyRequestForm &form);
 
 
 #endif

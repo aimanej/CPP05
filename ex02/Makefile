@@ -1,15 +1,23 @@
-Srcs= main.cpp PresidentialPardonForm.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+Srcs= main.cpp PresidentialPardonForm.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
-Header= PresidentialPardonForm.hpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+CC= c++
+
+Flags= -Wall -Wextra -Werror -std=c++98
+
+Header= PresidentialPardonForm.hpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 Name= bureaucrat
 
 all: $(Name)
 
 $(Name): $(Srcs) $(Header)
-	g++ $(Srcs) -o $(Name)
+	$(CC) $(Flags) $(Srcs) -o $(Name)
 
 clean:
 	rm -rf $(Name)
 
+fclean : clean
+
 re: clean all
+
+.Phony: re all clean fclean
