@@ -1,40 +1,53 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm() {
-	
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137) {
-	_target = target;
-	
-}
-
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137)
 {
-		AForm::execute(executor);
-		std::ofstream file(_target + "_ShrubberyCreationForm");
-		file << "treee";
+	_target = "unknown";
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) {
-// 	*this = other;
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
+{
+	_target = target;
+}
 
-// ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
-// 	(void)other;
-// 	return (*this);
-// }
-
-// std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &form)
-// {
-// 	out << "form name: " << form.getName() << "; signature : " << form.SignatureCheck() << "; minimum grade to sign: ";
-// 	out << form.get_gtos() << " minimum grade to execute: " << form.get_gtoex() << std::endl;
-// 	return out;
-// }
-
-// void ShrubberyCreationForm::sign()
-// {
-// 	_signed = true;
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+{
+	*this = other;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+	if (this != &other)
+	{
+		_target = other._target;
+		if (other.SignatureCheck())
+			this->sign();
+	}
+	return *this;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	AForm::execute(executor);
+	std::string name = _target + "_shrubbery";
+
+	std::ofstream file(name.c_str());
+	if (file)
+	{
+		file << "                &&& &&  & &&" << std::endl;
+		file << "            && &\\/&\\|& ()|/ @, &&" << std::endl;
+		file << "            &\\/(/&/&||/& /_/)_&/_&" << std::endl;
+		file << "         &() &\\/&|()|/&\\/ '%\" & ()" << std::endl;
+		file << "        &_\\_&&_\\ |& |&&/&__%_/_& &&" << std::endl;
+		file << "      &&   && & &| &| /& & % ()& /&&" << std::endl;
+		file << "       ()&_---()&\\&\\|&&-&&--%---()~" << std::endl;
+		file << "           &&     \\||| " << std::endl;
+		file << "                   |||" << std::endl;
+		file << "                   |||" << std::endl;
+		file << "                   |||" << std::endl;
+		file << "             , -=-~  .-^- _" << std::endl;
+		file << std::endl;
+	}
+}

@@ -1,6 +1,19 @@
 #include "Intern.hpp"
 
-Intern::Intern(void) {}
+Intern::Intern(void) {
+	std::cout << "intern spawned to serve his overlords" << std::endl;
+}
+
+Intern::Intern(const Intern& other) {
+	(void)other;
+}
+
+Intern& Intern::operator=(const Intern& other) {
+	(void)other;
+	return (*this);
+}
+
+Intern::~Intern(void) {}
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
@@ -46,13 +59,3 @@ const char*Intern::FormNotFoundException::what()const throw()
 }
 
 
-Intern::Intern(const Intern& other) {
-	*this = other;
-}
-
-Intern& Intern::operator=(const Intern& other) {
-	(void)other;
-	return (*this);
-}
-
-Intern::~Intern(void) {}

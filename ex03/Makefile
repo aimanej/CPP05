@@ -1,10 +1,10 @@
-Srcs= main.cpp Intern.cpp PresidentialPardonForm.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+Srcs= main.cpp Intern.cpp PresidentialPardonForm.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 CC= c++
 
 Flags= -Wall -Wextra -Werror -std=c++98
 
-Header= Intern.hpp PresidentialPardonForm.hpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+Header= Intern.hpp PresidentialPardonForm.hpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 Name= bureaucrat
 

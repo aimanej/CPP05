@@ -1,5 +1,4 @@
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 std::string Bureaucrat::getName() const
 {
@@ -12,20 +11,21 @@ int Bureaucrat::getGrade() const
 }
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-	if(_grade > 150)
+	if (_grade > 150)
 		throw GradeTooLowException();
-	else if(_grade < 1)
+	else if (_grade < 1)
 		throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat()  : _name("djando"), _grade(155) {}
+Bureaucrat::Bureaucrat() : _name("djando"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name),  _grade(other._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
-	if(this != &other)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this != &other)
 	{
 		_grade = other._grade;
 	}
@@ -37,14 +37,16 @@ Bureaucrat::~Bureaucrat(void) {}
 void Bureaucrat::inc_grade()
 {
 	_grade--;
-	if(_grade < 1)
+	std::cout << _name << " grade increased !" << std::endl;
+	if (_grade < 1)
 		throw GradeTooHighException();
 }
 
 void Bureaucrat::dec_grade()
 {
 	_grade++;
-	if(_grade > 150)
+	std::cout << _name << " grade decreased !";
+	if (_grade > 150)
 		throw GradeTooLowException();
 }
 
@@ -54,25 +56,28 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
 	return stream;
 }
 
-void Bureaucrat::signForm(AForm& form)
+void Bureaucrat::signForm(AForm &form)
 {
-	try{
+	try
+	{
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
-	catch(std::exception &e)
+	catch (std::exception &e)
 	{
-		std::cout << _name << " could not sign due to " << e.what() << std::endl;
+		std::cout << "Bureaucrat " << _name << " could not sign: " << form.getName() << " " << e.what() << std::endl;
 	}
 }
 
-void Bureaucrat::executeForm(AForm const & form) const
+void Bureaucrat::executeForm(AForm const &form) const
 {
-	try{
+	try
+	{
 		form.execute(*this);
 		std::cout << getName() << " executed " << form.getName() << std::endl;
 	}
-	catch(std::exception &e){
-		std::cout << getName() << " could not execute "  << form.getName() << "  due to " << e.what() << std::endl;
+	catch (std::exception &e)
+	{
+		std::cout << form.getName() << " could not be executed: " << e.what() << std::endl;
 	}
 }
