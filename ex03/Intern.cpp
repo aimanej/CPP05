@@ -25,13 +25,12 @@ AForm *Intern::makeForm(std::string name, std::string target)
 	{
 		if(name == forms[t])
 		{
+			std::cout << "Intern creates " << forms[t] << std::endl;
 			ptr = (this->*formmaker[t])(target);
 			return ptr;
 		}
 	}
 	throw FormNotFoundException();
-	
-
 }
 
 AForm *Intern::shruberry(std::string target)

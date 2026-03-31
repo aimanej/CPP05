@@ -3,6 +3,7 @@
 
 Form::Form(void) : _name("CLASSIFIED"), _g_to_sgn(1), _g_to_exe(1)
 {
+	_signed = false;
 }
 
 Form::Form(std::string name, int sgn, int exe) : _name(name), _g_to_sgn(sgn), _g_to_exe(exe)

@@ -4,6 +4,7 @@
 
 AForm::AForm(void) : _name("unknown"), _g_to_sgn(75), _g_to_exe(75)
 {
+	_signed = false;
 }
 
 AForm::~AForm(void) {}

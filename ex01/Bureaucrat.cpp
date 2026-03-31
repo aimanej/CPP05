@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 
-Bureaucrat::Bureaucrat(void) : _name("djando"), _grade(75){}
+Bureaucrat::Bureaucrat(void) : _name("djando"), _grade(150){}
 
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
@@ -27,7 +27,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 
 Bureaucrat::~Bureaucrat(void) {}
 
-//getters:
 
 std::string Bureaucrat::getName() const
 {
@@ -54,7 +53,7 @@ void Bureaucrat::dec_grade()
 		throw GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
+std::ostream &operator<<(std::ostream &stream,const Bureaucrat &b)
 {
 	stream << b.getName() << ", Bureaucrat grade " << b.getGrade() << std::endl;
 	return stream;
@@ -68,6 +67,6 @@ void Bureaucrat::signForm(Form& form)
 	}
 	catch(std::exception &e)
 	{
-		std::cout << _name << " could not sign due to " << e.what() << std::endl;
+		std::cout << _name << " couldnt'd sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }

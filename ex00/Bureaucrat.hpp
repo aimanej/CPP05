@@ -37,6 +37,6 @@ public:
 	void dec_grade();
 };
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat &obj);
+std::ostream &operator<<(std::ostream &stream,const Bureaucrat &obj);
 
 #endif

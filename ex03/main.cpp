@@ -18,7 +18,7 @@ int main()
         delete form2;
         
         AForm* form;
-        form = djan.makeForm("grass touching form", "zalinsky");
+        form = djan.makeForm("grass touching form", "13 students");
         jhon.executeForm(*form);
 
     }

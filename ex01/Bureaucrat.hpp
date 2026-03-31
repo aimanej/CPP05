@@ -39,6 +39,6 @@ class Bureaucrat {
 		
 };
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat &obj);
+std::ostream &operator<<(std::ostream &stream,const Bureaucrat &obj);
 
 #endif

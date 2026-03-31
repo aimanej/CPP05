@@ -50,7 +50,7 @@ void Bureaucrat::dec_grade()
 		throw GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &stream, Bureaucrat &b)
+std::ostream &operator<<(std::ostream &stream,const Bureaucrat &b)
 {
 	stream << b.getName() << ", Bureaucrat grade " << b.getGrade() << std::endl;
 	return stream;
@@ -65,7 +65,7 @@ void Bureaucrat::signForm(AForm &form)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat " << _name << " could not sign: " << form.getName() << " " << e.what() << std::endl;
+		std::cout << _name << " couldnt'd sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
